@@ -14,7 +14,7 @@ export function EmblaCarousel() {
         </div>
       </div>
 
-      <button className="embla__prev">Scroll to prev</button>
+      <button className="embla__prev"></button>
       <button className="embla__next">Scroll to next</button>
     </div>
   )
