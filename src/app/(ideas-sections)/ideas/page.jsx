@@ -1,4 +1,5 @@
 
+import IdeaCard from "@/app/components/Ideas/IdeasCard/IdeaCard";
 import { getIdeas } from "@/lib/data";
 
 

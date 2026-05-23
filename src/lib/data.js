@@ -10,3 +10,9 @@ export  const getIdeasById = async (id) => {
 
   return data || []
 }
+export  const getComments = async () => {
+  const res = await fetch(`${process.env.BACKEND_URL}/comments`)
+  const data = res.json();
+
+  return data || []
+}
