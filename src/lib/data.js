@@ -1,0 +1,12 @@
+export  const getIdeas = async () => {
+  const res = await fetch(`${process.env.BACKEND_URL}/ideas`)
+  const data = res.json();
+
+  return data || []
+}
+export  const getIdeasById = async (id) => {
+  const res = await fetch(`${process.env.BACKEND_URL}/ideas/${id}`)
+  const data = res.json();
+
+  return data || []
+}
