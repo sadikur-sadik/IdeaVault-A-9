@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 
 
 const myIdeas = async () => {
-
+  
   const ideas = await getIdeas();
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -18,7 +18,7 @@ const myIdeas = async () => {
   return (
     <section>
       
-      <h1 className="text-2xl text-center font-bold">My - Ideas</h1>
+      <h1 className="text-center font-bold">My - Ideas</h1>
 
       <div className="grid grid-cols-3 gap-6">
         {userIdeas.map(idea => <IdeaCard idea={idea} key={idea?._id}/>)}

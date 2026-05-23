@@ -16,7 +16,7 @@ export const postData = async (form) => {
   }
   return data || {};
 }
-export const postComment = async (comment) => {
+export const postComment = async(comment) => {
   'use server'
   const res = await fetch(`${process.env.BACKEND_URL}/comments`, {
     method: 'POST',
@@ -24,6 +24,19 @@ export const postComment = async (comment) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(comment)
+  })
+  const data = await res.json();
+
+  if (data.insertedId) {
+    revalidatePath('/user')
+  }
+  return data || {};
+}
+
+export const deleteIdea = async (ideaID) => {
+  'use server'
+  const res = await fetch(`${process.env.BACKEND_URL}/ideas`, {
+    method: 'DELETE',
   })
   const data = await res.json();
 
