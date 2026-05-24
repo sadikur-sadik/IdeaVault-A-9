@@ -1,6 +1,8 @@
 import Image from "next/image"
 import DeleteModal from "./DeleteModal";
 import { deleteIdea } from "@/lib/action";
+import UpdateModal from "./UpdateModal";
+import { updateIdea } from "@/lib/action";
 const MyIdeaCard = (idea) => {
 
   const {
@@ -39,7 +41,7 @@ const MyIdeaCard = (idea) => {
       </div>
 
       <div className="flex items-center gap-3 my-3">
-        <button className="btn px-5 py-2 text-white font-bold btn-success rounded-full">Edit</button>
+        <UpdateModal updateIdea={updateIdea} id={_id}/>
         <DeleteModal deleteIdea={deleteIdea} id={_id}/>
       </div>
     </div>

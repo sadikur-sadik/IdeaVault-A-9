@@ -16,7 +16,7 @@ export const postData = async (form) => {
   }
   return data || {};
 }
-export const postComment = async(comment) => {
+export const postComment = async (comment) => {
   'use server'
   const res = await fetch(`${process.env.BACKEND_URL}/comments`, {
     method: 'POST',
@@ -35,14 +35,33 @@ export const postComment = async(comment) => {
 
 export const deleteIdea = async (ideaID) => {
   'use server'
-  console.log(ideaID)
+
   const res = await fetch(`${process.env.BACKEND_URL}/ideas/${ideaID}`, {
     method: 'DELETE',
   })
   const data = await res.json();
 
- if (res.ok || data.deletedCount > 0) {
+  if (res.ok || data.deletedCount > 0) {
     revalidatePath('/my-ideas')
+  }
+  return data || {};
+}
+
+export const updateIdea = async(formData,editID) => {
+  'use server'
+  const form = JSON.stringify(formData)
+  console.log(form);
+  const res = await fetch(`${process.env.BACKEND_URL}/ideas/${editID}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:form
+  })
+
+  const data = res.json();
+   if (res.ok || data.modifiedCount > 0) {
+    revalidatePath('/my-ideas');
   }
   return data || {};
 }
