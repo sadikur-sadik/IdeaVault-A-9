@@ -1,8 +1,8 @@
 import Image from "next/image"
-import DeleteModal from "./DeleteModal";
-import { deleteIdea } from "@/lib/action";
-import UpdateModal from "./UpdateModal";
-import { updateIdea } from "@/lib/action";
+import UpdateModal from "./Update/UpdateModal";
+import { deleteIdea, updateIdea } from "@/lib/action";
+import DeleteIdeaModal from "./Delete/DeleteModal";
+
 const MyIdeaCard = (idea) => {
 
   const {
@@ -40,9 +40,10 @@ const MyIdeaCard = (idea) => {
         </div>
       </div>
 
-      <div className="flex items-center gap-3 my-3">
-        <UpdateModal updateIdea={updateIdea} id={_id}/>
-        <DeleteModal deleteIdea={deleteIdea} id={_id}/>
+      <div className="flex items-center gap-5 my-3">
+        <div><UpdateModal updateIdea={updateIdea} id={_id}/></div>
+        <div></div>
+        <div><DeleteIdeaModal deleteIdea={deleteIdea} id={_id}/></div>
       </div>
     </div>
   );
