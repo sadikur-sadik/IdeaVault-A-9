@@ -46,6 +46,19 @@ export const deleteIdea = async (ideaID) => {
   }
   return data || {};
 }
+export const deleteComment = async (commentID) => {
+  'use server'
+
+  const res = await fetch(`${process.env.BACKEND_URL}/comments/${commentID}`, {
+    method: 'DELETE',
+  })
+  const data = await res.json();
+
+  if (res.ok || data.deletedCount > 0) {
+    revalidatePath('/ideas')
+  }
+  return data || {};
+}
 
 export const updateIdea = async(formData,editID) => {
   'use server'
