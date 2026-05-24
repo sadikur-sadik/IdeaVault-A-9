@@ -63,8 +63,27 @@ export const deleteComment = async (commentID) => {
 export const updateIdea = async(formData,editID) => {
   'use server'
   const form = JSON.stringify(formData)
-  console.log(form);
+ 
   const res = await fetch(`${process.env.BACKEND_URL}/ideas/${editID}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:form
+  })
+
+  const data = res.json();
+   if (res.ok || data.modifiedCount > 0) {
+    revalidatePath('/my-ideas');
+  }
+  return data || {};
+}
+export const updateComment = async(formData,editID) => {
+  'use server'
+  console.log(formData,editID);
+  const form = JSON.stringify(formData)
+ 
+  const res = await fetch(`${process.env.BACKEND_URL}/comments/${editID}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'

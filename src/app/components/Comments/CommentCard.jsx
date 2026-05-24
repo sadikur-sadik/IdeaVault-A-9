@@ -1,7 +1,9 @@
 'use client'
 import Image from 'next/image';
+import UpdateModal from './Update/UpdateModal';
 
-export default function CommentCard({comment:commentdata , deleteComment}) {
+
+export default function CommentCard({comment:commentdata , deleteComment,updateComment}) {
   
   const { 
     _id, 
@@ -50,10 +52,8 @@ export default function CommentCard({comment:commentdata , deleteComment}) {
       </div>
 
       <div className='flex flex-col gap-3'>
-        <button>
-          Edit
-        </button>
-        <button className='btn btn-error' onClick={handleDelete}>
+        <UpdateModal updateComment={updateComment} id={_id}></UpdateModal>
+        <button className='btn px-5 py-2 text-white font-bold rounded-full btn-error' onClick={handleDelete}>
           Delete
         </button>
       </div>
