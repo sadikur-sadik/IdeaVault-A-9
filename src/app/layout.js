@@ -22,11 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      data-theme="light"
+      data-theme="dark"
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col ">
         <Navbar/>
         {children}</body>
     </html>

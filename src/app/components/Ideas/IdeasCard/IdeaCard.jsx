@@ -17,27 +17,28 @@ const IdeaCard = ({ idea }) => {
     targetAudience,
     problemStatement,
     proposedSolution,
+    userName
   } = idea
   return (
-    <div>
-      <div className="card bg-base-100 w-96 shadow-sm">
-        <figure>
-          <Image
-            src={imageUrl}
-            alt="Shoes" height={100} width={100} />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            {title}
-            <div className="badge badge-secondary">{tags}</div>
-          </h2>
-          <p>{detailedDescription}</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">{category}</div>
-            <div className="badge badge-outline">{estimatedBudget}</div>
-            <button className="btn btn-success"><Link href={`/ideas/${_id}`}>Details</Link></button>
-          </div>
-        </div>
+    <div className=" mx-auto hover:shadow-lg dark:bg-linear-to-b from-slate-800 via-slate-900 to-slate-900 border-t-15 border-t-cyan-400 w-5/6 md:w-auto rounded-3xl p-3 shadow-sm shadow-cyan-400">
+      <div className="w-auto h-60 overflow-hidden relative rounded-xl">
+        <Image src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"></Image>
+      </div>
+      <div className="h-25 space-y-3 mt-3">
+        <div className="badge text-xs font-bold text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>
+        <p className="text-xl font-bold">{title}</p>
+      </div>
+      
+      <div className="line-clamp-2 ">
+        <p className="text-xs dark:text-slate-300 text-slate-600">{shortDescription}</p>
+      </div>
+      <hr className="w-full text-cyan-400/30 my-3"/>
+      <div className="flex justify-between items-center">
+        <p className="text-md flex flex-col md:inline-block items center"><span className="dark:text-slate-300 text-slate-800 text-sm">Budget:</span> <span className="font-bold">{estimatedBudget}$</span></p>
+        <p className="text-md flex flex-col md:inline-block items center"><span className="dark:text-slate-300 text-slate-800 text-sm">Creator:</span> <span className="font-bold">{userName}</span></p>
+      </div>
+      <div className="my-3">
+        <button className="hover:bg-cyan-400 hover:text-white font-bold px-3 py-2 w-full rounded-full  text-cyan-400 bg-transparent border border-cyan-400"><Link href={`ideas/${_id}`}>View Details</Link></button>
       </div>
     </div>
   );

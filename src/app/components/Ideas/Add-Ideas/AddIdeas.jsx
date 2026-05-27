@@ -7,12 +7,15 @@ const AddIdeas = ({ postData }) => {
 
   const session = useSession()
   const id = session?.data?.session?.userId
+  const userName = session?.data?.user?.name
+  
   const handleSubmit = async(e) => {
 
     e.preventDefault()
     const initForm = new FormData(e.currentTarget)
     const formData = Object.fromEntries(initForm.entries())
     formData.userID = id
+    formData.userName = userName
     await postData(formData)
 
   }
