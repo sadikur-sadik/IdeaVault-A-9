@@ -2,6 +2,8 @@
 
 import { authClient } from "@/lib/auth-client";
 import { getYear, getMinutes, getSeconds, format, getDate, getHours, getMonth } from 'date-fns';
+import { AiOutlineSend } from "react-icons/ai";
+
 
 
 const Comment = ({postComment , id}) => {
@@ -37,9 +39,11 @@ const Comment = ({postComment , id}) => {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <textarea placeholder="Comments" name="comment" className="textarea textarea-xl"></textarea>
-        <button type="submit" className="btn btn-success">Post Comment</button>
+      <form onSubmit={handleSubmit} className="flex gap-3 items-center mt-5">
+        <input placeholder="Comments" name="comment" className="w-full px-3 py-1 border-b rounded-full"></input>
+        <button type="reset" className="md:block hidden dark:text-slate-300 text-slate-900 text-sm font-bold px-3 py-1 rounded-full border border-transparent hover:bg-slate-500 hover:border-slate-500">Cancel</button>
+        <button type="submit" className="md:block hidden px-3 py-1 rounded-full bg-cyan-400 text-white hover:bg-cyan-600 hover:border-cyan-600 text-sm font-bold border border-cyan-400">Comment</button>
+        <button type="submit" className=" md:hidden p-2 rounded-full bg-cyan-400 text-white hover:bg-cyan-600 hover:border-cyan-600 text-sm font-bold border border-cyan-400 flex justify-center items-center"><AiOutlineSend/></button>
       </form>
     </div>
   );

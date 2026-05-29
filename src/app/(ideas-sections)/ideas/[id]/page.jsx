@@ -1,21 +1,23 @@
-import Comment from "@/app/components/Comments/Comment";
-import CommentCard from "@/app/components/Comments/CommentCard";
-import IdeaCard from "@/app/components/Ideas/IdeasCard/IdeaCard";
+
+import IdeaDetailsCard from "@/app/components/Ideas/IdeaDetails/IdeaDetailsCard";
 import { postComment, updateComment } from "@/lib/action";
 import { getComments, getIdeasById } from "@/lib/data";
 import { deleteComment } from "@/lib/action";
 const IdeaDetails = async({params}) => {
 
   const {id} = await params;
+  console.log(id);
   const idea = await getIdeasById(id)
+  console.log(id);
+  
   const comments = await getComments()
   const ideaComments = comments.filter(comment => comment.ideaID == id)
   
   return (
     <div>
-      <IdeaCard idea={idea}></IdeaCard>
-      <Comment postComment={postComment} id={id}></Comment>
-      {ideaComments.map(ideaComment => <CommentCard key={ideaComment?._id} updateComment={updateComment} deleteComment={deleteComment} comment={ideaComment}></CommentCard>)}
+      <IdeaDetailsCard postComment={postComment} id={id} idea={idea} ideaComments={ideaComments} updateComment={updateComment} deleteComment={deleteComment} ></IdeaDetailsCard>
+      {/* <Comment postComment={postComment} id={id}></Comment> */}
+      
     </div>
   );
 };
