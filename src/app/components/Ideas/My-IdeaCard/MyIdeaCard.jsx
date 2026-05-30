@@ -22,7 +22,7 @@ const MyIdeaCard = (idea) => {
 
 
   return (
-    <div className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-5/6 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
+    <div className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-11/12 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
         <Image src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"></Image>
       </div>

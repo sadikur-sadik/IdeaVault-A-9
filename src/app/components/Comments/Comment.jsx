@@ -6,7 +6,7 @@ import { AiOutlineSend } from "react-icons/ai";
 
 
 
-const Comment = ({postComment , id}) => {
+const Comment = ({postComment , id ,title,imageUrl}) => {
   
   const date = new Date()
   const currentTimeStamp = {
@@ -31,9 +31,10 @@ const Comment = ({postComment , id}) => {
     newForm.userID = session.data.user.id;
     newForm.userName = session.data.user.name;
     newForm.userImage = session.data.user.image;
-    newForm.ideaID = id
+    newForm.ideaID = id;
+    newForm.ideaTitle = title;
+    newForm.ideaImage = imageUrl;
     newForm.timeStamp = currentTimeStamp;
-    console.log(newForm);
 
     await postComment(newForm)
   }

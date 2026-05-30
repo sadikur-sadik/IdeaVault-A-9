@@ -6,7 +6,6 @@ import { MdReportProblem } from "react-icons/md";
 import { BsLightbulbFill } from "react-icons/bs";
 import { SiLibreofficewriter } from "react-icons/si";
 import { TbCoinTakaFilled } from "react-icons/tb";
-import { FaRegComments } from "react-icons/fa6";
 import Comment from "../../Comments/Comment";
 import CommentCard from "../../Comments/CommentCard";
 
@@ -64,7 +63,7 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
 
           
           <div className="hidden md:block">
-            <Comment postComment={postComment} id={id}></Comment>
+            <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
             {ideaComments.map(ideaComment => (
               <CommentCard
                 key={ideaComment?._id}
@@ -156,7 +155,7 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
 
 
           <div className="block md:hidden">
-            <Comment postComment={postComment} id={id}></Comment>
+            <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
             {ideaComments.map(ideaComment => <CommentCard key={ideaComment?._id} updateComment={updateComment} deleteComment={deleteComment} comment={ideaComment}></CommentCard>)}
 
           </div>
