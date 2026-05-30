@@ -10,7 +10,7 @@ const Ideas = async () => {
   return (
     <section className="max-w-350">
       <div className="container mx-auto">
-        <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6">Explore All Ideas</h1>
+        <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6">Explore All <span className="text-cyan-400">Ideas</span></h1>
 
         <div className="grid md:grid-cols-3 md:gap-6 gap-3 sm:grid-cols-2 grid-cols-1">
           {ideas?.map(idea => <IdeaCard key={idea?._id} idea={idea} />)}

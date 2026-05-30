@@ -2,73 +2,114 @@
 
 import { useSession } from "@/lib/auth-client";
 
-
 const AddIdeas = ({ postData }) => {
-
   const session = useSession()
   const id = session?.data?.session?.userId
   const userName = session?.data?.user?.name
-  
-  const handleSubmit = async(e) => {
 
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const initForm = new FormData(e.currentTarget)
     const formData = Object.fromEntries(initForm.entries())
     formData.userID = id
     formData.userName = userName
     await postData(formData)
-
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset className="fieldset border-base-300 rounded-box w-[50vw] border p-4 flex gap-10 items center mx-auto">
+    <section className="w-full">
+     
+      <div className="container mx-auto w-11/12 lg:max-w-[60vw]">
+        
+        <div className="w-full">
+          <h1 className="text-3xl md:text-6xl text-center md:text-left font-bold my-6">
+            Launch New <span className="text-cyan-400">Idea</span>
+          </h1>
+        </div>
 
-          <div>
-            <label className="label">Idea Title</label>
-            <input name="title" className="input" placeholder="Idea Title" />
+        <form 
+          onSubmit={handleSubmit} 
+          className="w-full p-4 md:p-8 border border-slate-300 dark:border-slate-700/50 rounded-box bg-white/80 dark:bg-slate-900/50 backdrop-blur-md shadow-md dark:shadow-none"
+        >
+          
+          <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 border-none p-0 m-0">
 
-            <label className="label">Short Description</label>
-            <input name="shortDescription" className="input" placeholder="Short Description" />
+            <div className="flex flex-col gap-3">
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Idea Title</label>
+                <input name="title" className="input w-full rounded-full" placeholder="Idea Title" required />
+              </div>
 
-            <label className="label">Detailed Description</label>
-            <input name="detailedDescription" className="input" placeholder="Detailed Description" />
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Short Description</label>
+                <input name="shortDescription" className="input w-full rounded-full" placeholder="Short Description" required />
+              </div>
 
-            <label className="label">Category</label>
-            <select name="category" className="select" defaultValue="">
-              <option value="" disabled>Select Category</option>
-              <option value="Tech">Tech</option>
-              <option value="Health">Health</option>
-              <option value="AI">AI</option>
-              <option value="Education">Education</option>
-              <option value="Other">Other</option>
-            </select>
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Detailed Description</label>
+                <input name="detailedDescription" className="input w-full rounded-full" placeholder="Detailed Description" required />
+              </div>
 
-            <label className="label">Tags</label>
-            <input name="tags" className="input" placeholder="Tags" />
-          </div>
-          <div>
-            <label className="label">Image URL</label>
-            <input name="imageUrl" className="input" placeholder="Image URL" />
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Category</label>
+                <select name="category" className="select w-full rounded-full" defaultValue="" required>
+                  <option value="" disabled>Select Category</option>
+                  <option value="Tech">Tech</option>
+                  <option value="Health">Health</option>
+                  <option value="AI">AI</option>
+                  <option value="Education">Education</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
 
-            <label className="label">Estimated Budget</label>
-            <input name="estimatedBudget" type="number" className="input" placeholder="Estimated Budget" />
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Tags (Optional)</label>
+                <input name="tags" className="input w-full rounded-full" placeholder="Tags" />
+              </div>
+            </div>
 
-            <label className="label">Target Audience</label>
-            <input name="targetAudience" className="input" placeholder="Target Audience" />
+            <div className="flex flex-col gap-3">
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Image URL</label>
+                <input name="imageUrl" className="input w-full rounded-full" placeholder="Image URL" required />
+              </div>
 
-            <label className="label">Problem Statement</label>
-            <input name="problemStatement" className="input" placeholder="Problem Statement" />
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Estimated Budget</label>
+                <input name="estimatedBudget" type="number" className="input w-full rounded-full" placeholder="Estimated Budget" required />
+              </div>
 
-            <label className="label">Proposed Solution</label>
-            <input name="proposedSolution" className="input" placeholder="Proposed Solution" />
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Target Audience</label>
+                <input name="targetAudience" className="input w-full rounded-full" placeholder="Target Audience" required />
+              </div>
 
-            <button type="submit" className="btn btn-neutral mt-4">Submit Idea</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Problem Statement</label>
+                <input name="problemStatement" className="input w-full rounded-full" placeholder="Problem Statement" required />
+              </div>
+
+              <div>
+                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Proposed Solution</label>
+                <input name="proposedSolution" className="input w-full rounded-full" placeholder="Proposed Solution" required />
+              </div>
+            </div>
+
+           
+            <div className="col-span-1 md:col-span-2 flex flex-col-reverse sm:flex-row justify-end gap-4 mt-6">
+              <button type="reset" className="md:block hidden text-slate-900 dark:text-slate-300 text-sm font-bold px-4 py-1 rounded-full border border-transparent hover:bg-slate-200 dark:hover:bg-slate-500 hover:border-transparent">Reset</button>
+              <button
+                type="submit"
+                className="btn w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 transition-colors"
+              >
+                Submit Idea
+              </button>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+    </section>
   );
 };
 

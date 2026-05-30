@@ -17,34 +17,28 @@ const MyIdeaCard = (idea) => {
     targetAudience,
     problemStatement,
     proposedSolution,
+    userName
   } = idea?.idea
 
- 
+
   return (
-    <div className="my-10 max-w-sm rounded-xl border border-gray-100 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg">
-      <div className="flex items-center gap-4">
-        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-green-500">
-          <Image
-            src={imageUrl}
-            fill
-            className="object-cover"
-            alt="idea title"
-          />
-        </div>
-
-
-        <div className="min-w-0 flex-1">
-          <h3 className="truncate text-xl font-bold text-gray-800 transition-colors hover:text-green-600">
-            {title}
-          </h3>
-        </div>
+    <div className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-5/6 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
+      <div className="w-full h-60 overflow-hidden relative rounded-xl">
+        <Image src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"></Image>
+      </div>
+      <div className="h-25 space-y-3 mt-3">
+        <div className="badge text-xs font-bold text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>
+        <p className="text-xl font-bold">{title}</p>
       </div>
 
-      <div className="flex items-center gap-5 my-3">
+    
+      <hr className="w-full text-cyan-400/30 my-3" />
+      <div className="flex justify-between gap-3 items-center">
         <div><UpdateModal updateIdea={updateIdea} id={_id}/></div>
-        <div></div>
+        
         <div><DeleteIdeaModal deleteIdea={deleteIdea} id={_id}/></div>
       </div>
+     
     </div>
   );
 };

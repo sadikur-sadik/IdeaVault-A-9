@@ -1,7 +1,10 @@
 'use client'
 
+import { FaEdit } from "react-icons/fa"
+import { MdOutlineDelete } from "react-icons/md"
 
-const UpdateModal = ({ updateIdea,id }) => {
+
+const UpdateModal = ({ updateIdea, id }) => {
 
   const handleUpdate = async (e) => {
     e.preventDefault()
@@ -13,7 +16,13 @@ const UpdateModal = ({ updateIdea,id }) => {
 
   return (
     <div>
-      <label htmlFor="my_modal_6" className="btn px-5 py-2 text-white font-bold btn-success rounded-full">Update</label>
+      <label
+        htmlFor="my_modal_delete"
+        className="btn w-full sm:w-auto rounded-full md:px-6 px-3 py-2 md:py-2.5 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 "
+      >
+        <MdOutlineDelete className="w-4 h-4" />
+        <span>Update</span>
+      </label>
 
 
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
@@ -65,8 +74,8 @@ const UpdateModal = ({ updateIdea,id }) => {
                 <div className="modal-action flex justify-start">
                   <label htmlFor="my_modal_6" className="btn px-5 py-2 text-white font-bold  bg-gray-400 rounded-full">Cancel</label>
                   <button type="submit" className="btn px-5 py-2 text-white font-bold btn-success rounded-full">
-                    
-                  <label htmlFor="my_modal_6" className="px-5 py-2">Confirm</label>
+
+                    <label htmlFor="my_modal_6" className="px-5 py-2">Confirm</label>
                   </button>
                 </div>
               </div>

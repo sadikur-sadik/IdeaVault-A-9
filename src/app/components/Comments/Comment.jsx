@@ -41,8 +41,13 @@ const Comment = ({postComment , id}) => {
     <div>
       <form onSubmit={handleSubmit} className="flex gap-3 items-center mt-5">
         <input placeholder="Comments" name="comment" className="w-full px-3 py-1 border-b rounded-full"></input>
-        <button type="reset" className="md:block hidden dark:text-slate-300 text-slate-900 text-sm font-bold px-3 py-1 rounded-full border border-transparent hover:bg-slate-500 hover:border-slate-500">Cancel</button>
-        <button type="submit" className="md:block hidden px-3 py-1 rounded-full bg-cyan-400 text-white hover:bg-cyan-600 hover:border-cyan-600 text-sm font-bold border border-cyan-400">Comment</button>
+         <button type="reset" className="md:block hidden dark:text-slate-300 text-slate-900 text-sm font-bold px-4 py-2 rounded-full border border-transparent hover:bg-slate-500 hover:border-slate-500 ">Cancel</button>
+       <button
+                type="submit"
+                className="md:block hidden btn rounded-full px-6 py-2 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 "
+              >
+                Confirm
+              </button>
         <button type="submit" className=" md:hidden p-2 rounded-full bg-cyan-400 text-white hover:bg-cyan-600 hover:border-cyan-600 text-sm font-bold border border-cyan-400 flex justify-center items-center"><AiOutlineSend/></button>
       </form>
     </div>

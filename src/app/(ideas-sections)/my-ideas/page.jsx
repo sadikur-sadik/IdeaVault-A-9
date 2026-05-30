@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 
 
 const myIdeas = async () => {
-  
+
   const ideas = await getIdeas();
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -14,18 +14,20 @@ const myIdeas = async () => {
 
   const userIdeas = ideas.filter(idea => idea?.userID == id);
 
-  
-  return (
-    <section>
-      
-      <h1 className="text-center font-bold">My - Ideas</h1>
 
-      <div className="grid grid-cols-3 gap-6">
-        {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id}/>)}
+  return (
+    <section className="max-w-350">
+
+      <div className="container mx-auto md:w-auto w-11/12">
+        <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6">My Ideas <span className="text-cyan-400">Log</span></h1>
+
+        <div className="grid md:grid-cols-3  grid-cols-1 gap-6">
+          {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} />)}
+        </div>
       </div>
     </section>
   );
-  
+
 };
 
 export default myIdeas;
