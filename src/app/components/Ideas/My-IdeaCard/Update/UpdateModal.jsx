@@ -1,7 +1,8 @@
 'use client'
 
-import { FaEdit } from "react-icons/fa"
-import { MdOutlineDelete } from "react-icons/md"
+
+import { FaPen } from "react-icons/fa";
+
 
 
 const UpdateModal = ({ updateIdea, id }) => {
@@ -20,7 +21,7 @@ const UpdateModal = ({ updateIdea, id }) => {
         htmlFor="my_modal_delete"
         className="btn w-full sm:w-auto rounded-full md:px-6 px-3 py-2 md:py-2.5 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 "
       >
-        <MdOutlineDelete className="w-4 h-4" />
+        <FaPen className="w-4 h-4" />
         <span>Update</span>
       </label>
 

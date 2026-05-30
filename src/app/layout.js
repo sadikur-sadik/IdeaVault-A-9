@@ -2,6 +2,8 @@ import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 
+import { Provider } from "./components/theme-provider/Provider";
+
 // 1. Import and configure Inter (it is a variable font by default)
 const inter = Inter({
   variable: "--font-inter",
@@ -22,13 +24,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      data-theme="dark"
+
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-black">
-        <Navbar/>
-        {children}</body>
+      <body className="min-h-full flex flex-col dark:bg-slate-950 dark:text-slate-50 text-slate-950 bg-slate-50">
+
+        <Provider
+
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <Navbar />
+          {children}
+        </Provider>
+      </body>
     </html>
   );
 }
