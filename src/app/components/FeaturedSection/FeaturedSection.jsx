@@ -1,36 +1,28 @@
+import { getFeaturedIdeas } from "@/lib/data";
 import FeaturedCard from "./FeaturedCard/FeaturedCard";
 
-const FeaturedSection = () => {
-  const data = [
-    {
-      "id": "item_01",
-      "category": "Technology",
-      "title": "Minimalist Workspace",
-      "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
-      "description": "A clean, focused frontend developer setup with an open laptop, soft natural lighting, and a touch of indoor greenery.",
-      "tags": "workspace"
-    },
-    {
-      "id": "item_02",
-      "category": "Nature",
-      "title": "Alpine Reflection",
-      "imageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
-      "description": "Crisp mountain air meeting a perfectly still, crystal-clear lake that mirrors the dramatic peaks above.",
-      "tags": "mountains"
-    },
-    {
-      "id": "item_03",
-      "category": "Urban",
-      "title": "Neon Light Trails",
-      "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5",
-      "description": "Vibrant long-exposure night photography capturing the energy and movement of city traffic through neon streaks.",
-      "tags": "city"
-    }
-  ]
+const FeaturedSection = async() => {
+  const featuredIdea = await getFeaturedIdeas();
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 mb-8">
-      {data.map(d => <FeaturedCard data={d} key={d.id}/>)}
-    </div>
+    <section className="bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-white py-20 px-4 md:px-8 max-w-350">
+      <div className="container mx-auto">
+        
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Explore Handpicked <span className="text-cyan-600 dark:text-cyan-400">Featured Ideas</span>
+          </h2>
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
+            Our platform connects thinkers and builders to turn simple thoughts into reality.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {featuredIdea.map(idea => <FeaturedCard idea={idea} key={idea._id}/>)}
+        </div>
+
+      </div>
+    </section>
   );
 };
 

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 
 import { Provider } from "./components/theme-provider/Provider";
+import Footer from "./components/Footer/Footer";
 
 // 1. Import and configure Inter (it is a variable font by default)
 const inter = Inter({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange>
           <Navbar />
           {children}
+          <Footer/>
         </Provider>
       </body>
     </html>
