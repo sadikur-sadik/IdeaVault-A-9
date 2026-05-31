@@ -1,6 +1,4 @@
 "use client"
-import Image from "next/image";
-import logo from "./../../assets/logo.png";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -28,16 +26,16 @@ const Navbar = () => {
     <div className="relative text-slate-300 dark:text-slate-600 bg-slate-950 dark:bg-white w-full shadow-md border-b border-slate-950/50 dark:border-slate-200 transition-colors duration-200">
       <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
 
-      {/* Mobile Sidebar Overlay */}
+      
       <label
         htmlFor="navbar-1-toggle"
         className="fixed inset-0 bg-slate-950/50 backdrop-blur-xs hidden peer-checked:max-lg:block z-40"
       ></label>
 
-      {/* Main Navbar Container */}
+      
       <div className="container mx-auto z-50 relative py-3 px-4 flex justify-between items-center h-16">
 
-        {/* LEFT: Logo & Mobile Hamburger */}
+        
         <div className="flex items-center gap-2 min-w-45">
           <label
             htmlFor="navbar-1-toggle"
@@ -57,7 +55,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* CENTER: Fixed Desktop Navigation Links */}
+        
         <div className="hidden lg:flex items-center justify-center flex-1 mx-4">
           <div className="flex items-center gap-1 font-semibold text-slate-300 dark:text-slate-600 whitespace-nowrap text-sm xl:text-base">
             <Link href="/" className={`hover:bg-slate-900 dark:hover:bg-slate-100 px-3 py-2 rounded-md transition-all duration-150 ${path === "/" ? "text-cyan-400 dark:text-cyan-600 font-bold bg-slate-900/50 dark:bg-slate-100/50" : ""}`}>
@@ -78,7 +76,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* RIGHT: Utilities (Theme & Profile) */}
+        
         <div className="flex items-center justify-end gap-3 min-w-45">
           <ThemeToggle />
 
@@ -92,7 +90,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE DROWER */}
+      
       <div className="absolute top-full left-0 w-full bg-slate-950 dark:bg-white rounded-b-md shadow-lg hidden peer-checked:max-lg:block z-50 border-t border-slate-900 dark:border-slate-100">
         <ul className="menu menu-vertical p-4 gap-1 text-slate-300 dark:text-slate-600 font-medium">
           <li>

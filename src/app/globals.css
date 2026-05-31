@@ -1,3 +1,16 @@
 @import "tailwindcss";
 @import "daisyui/daisyui.css";
 @custom-variant dark (&:where(.dark, .dark *));
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}

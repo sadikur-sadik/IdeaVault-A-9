@@ -7,19 +7,19 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { RiArrowLeftWideLine, RiArrowRightWideLine } from "react-icons/ri";
 
 export function Banner() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 0 })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 50 })
 
   const goToPrev = () => emblaApi?.scrollPrev()
   const goToNext = () => emblaApi?.scrollNext()
 
   return (
-    <div className=''>
+    <div className='relative w-full'>
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
-            <div className="embla__slide"><Banner_1 /></div>
-            <div className="embla__slide"><Banner_2 /></div>
-            <div className="embla__slide"><Banner_3 /></div>
+            <div className="embla__slide "><Banner_1 /></div>
+            <div className="embla__slide "><Banner_2 /></div>
+            <div className="embla__slide "><Banner_3 /></div>
           </div>
         </div>
 
@@ -33,7 +33,7 @@ export function Banner() {
 
 
         <button
-          className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl sm:text-3xl text-white bg-black/40 opacity-50 hover:opacity-100 transition-opacity duration-200 hidden sm:block z-10 p-2 rounded-full"
+          className=" absolute right-6 top-1/2 -translate-y-1/2 text-2xl sm:text-3xl text-white bg-black/40 opacity-50 hover:opacity-100 transition-opacity duration-200 hidden sm:block z-10 p-2 rounded-full"
           onClick={goToNext}
           aria-label="Next slide"
         >
