@@ -5,9 +5,10 @@ import Banner_2 from './Banners/Banner_3'
 import Banner_3 from './Banners/Banner_2'
 import useEmblaCarousel from 'embla-carousel-react'
 import { RiArrowLeftWideLine, RiArrowRightWideLine } from "react-icons/ri";
+import Autoplay from 'embla-carousel-autoplay'
 
 export function Banner() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 50 })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 50, },[Autoplay({ delay: 6000, stopOnInteraction: false })])
 
   const goToPrev = () => emblaApi?.scrollPrev()
   const goToNext = () => emblaApi?.scrollNext()

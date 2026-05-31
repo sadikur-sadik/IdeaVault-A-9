@@ -25,7 +25,7 @@ const IdeaCard = ({ idea }) => {
         <Image src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"></Image>
       </div>
       <div className="h-25 space-y-3 mt-3">
-        <div className="badge text-xs font-bold text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>
+        <div className="badge text-xs font-bold text-slate-900 dark:text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>
         <p className="text-xl font-bold">{title}</p>
       </div>
 
