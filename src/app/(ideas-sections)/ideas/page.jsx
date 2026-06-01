@@ -7,8 +7,9 @@ import { getIdeas } from "@/lib/data";
 const Ideas = async ({searchParams}) => {
 
   const { search = "", filter = "" } = await searchParams;
-  console.log(search);
+  
   const ideas = await getIdeas(search,filter);
+  
 
   return (
     <section className="max-w-350">
