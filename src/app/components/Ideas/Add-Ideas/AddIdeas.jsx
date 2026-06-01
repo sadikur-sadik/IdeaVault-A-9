@@ -18,7 +18,6 @@ const AddIdeas = ({ postData }) => {
 
   return (
     <section className="w-full">
-     
       <div className="container mx-auto w-11/12 lg:max-w-[60vw]">
         
         <div className="w-full">
@@ -29,78 +28,132 @@ const AddIdeas = ({ postData }) => {
 
         <form 
           onSubmit={handleSubmit} 
-          className="w-full p-4 md:p-8 border border-slate-300 dark:border-slate-700/50 rounded-box bg-white/80 dark:bg-slate-900/50 backdrop-blur-md shadow-md dark:shadow-none"
+          className="w-full p-4 md:p-8 border border-slate-300 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900/50 backdrop-blur-md shadow-md dark:shadow-none"
         >
-          
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 border-none p-0 m-0">
 
             <div className="flex flex-col gap-3">
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Idea Title</label>
-                <input name="title" className="input w-full rounded-full" placeholder="Idea Title" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Idea Title</label>
+                <input 
+                  name="title" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Idea Title" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Short Description</label>
-                <input name="shortDescription" className="input w-full rounded-full" placeholder="Short Description" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Short Description</label>
+                <input 
+                  name="shortDescription" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Short Description" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Detailed Description</label>
-                <input name="detailedDescription" className="input w-full rounded-full" placeholder="Detailed Description" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Detailed Description</label>
+                <input 
+                  name="detailedDescription" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Detailed Description" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Category</label>
-                <select name="category" className="select w-full rounded-full" defaultValue="" required>
-                  <option value="" disabled>Select Category</option>
-                  <option value="Tech">Tech</option>
-                  <option value="Health">Health</option>
-                  <option value="AI">AI</option>
-                  <option value="Education">Education</option>
-                  <option value="Other">Other</option>
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Category</label>
+                <select 
+                  name="category" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  defaultValue="" 
+                  required
+                >
+                  <option value="" disabled className="dark:bg-slate-900 text-gray-400">Select Category</option>
+                  <option value="Tech" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Tech</option>
+                  <option value="Health" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Health</option>
+                  <option value="AI" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">AI</option>
+                  <option value="Education" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Education</option>
+                  <option value="Other" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Other</option>
                 </select>
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Tags (Optional)</label>
-                <input name="tags" className="input w-full rounded-full" placeholder="Tags" />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Tags (Optional)</label>
+                <input 
+                  name="tags" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Tags" 
+                />
               </div>
             </div>
 
             <div className="flex flex-col gap-3">
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Image URL</label>
-                <input name="imageUrl" className="input w-full rounded-full" placeholder="Image URL" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Image URL</label>
+                <input 
+                  name="imageUrl" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Image URL" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Estimated Budget</label>
-                <input name="estimatedBudget" type="number" className="input w-full rounded-full" placeholder="Estimated Budget" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Estimated Budget</label>
+                <input 
+                  name="estimatedBudget" 
+                  type="number" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Estimated Budget" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Target Audience</label>
-                <input name="targetAudience" className="input w-full rounded-full" placeholder="Target Audience" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Target Audience</label>
+                <input 
+                  name="targetAudience" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Target Audience" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Problem Statement</label>
-                <input name="problemStatement" className="input w-full rounded-full" placeholder="Problem Statement" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Problem Statement</label>
+                <input 
+                  name="problemStatement" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Problem Statement" 
+                  required 
+                />
               </div>
 
               <div>
-                <label className="label block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Proposed Solution</label>
-                <input name="proposedSolution" className="input w-full rounded-full" placeholder="Proposed Solution" required />
+                <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Proposed Solution</label>
+                <input 
+                  name="proposedSolution" 
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
+                  placeholder="Proposed Solution" 
+                  required 
+                />
               </div>
             </div>
 
-           
             <div className="col-span-1 md:col-span-2 flex flex-col-reverse sm:flex-row justify-end gap-4 mt-6">
-              <button type="reset" className="md:block hidden text-slate-900 dark:text-slate-300 text-sm font-bold px-4 py-1 rounded-full border border-transparent hover:bg-slate-200 dark:hover:bg-slate-500 hover:border-transparent">Reset</button>
+              <button 
+                type="reset" 
+                className="hidden md:block text-slate-900 dark:text-slate-300 text-sm font-bold px-5 py-2 rounded-full border border-transparent hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+              >
+                Reset
+              </button>
+              
               <button
                 type="submit"
-                className="btn w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 transition-colors"
+                className="w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 transition-colors"
               >
                 Submit Idea
               </button>

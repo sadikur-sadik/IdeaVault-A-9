@@ -16,7 +16,7 @@ const myIdeas = async () => {
 
 
   return (
-    <section className="max-w-350">
+    <section className="max-w-350 md:py-20 py-10">
 
       <div className="container mx-auto md:w-auto w-11/12">
         <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6">My Ideas <span className="text-cyan-400">Log</span></h1>

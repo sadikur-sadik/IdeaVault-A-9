@@ -13,7 +13,8 @@ const IdeaDetails = async({params}) => {
   const ideaComments = comments.filter(comment => comment.ideaID == id)
   
   return (
-    <div>
+    <div className="md:py-10 py-5">
+
       <IdeaDetailsCard postComment={postComment} id={id} idea={idea} ideaComments={ideaComments} updateComment={updateComment} deleteComment={deleteComment} ></IdeaDetailsCard>
       
       

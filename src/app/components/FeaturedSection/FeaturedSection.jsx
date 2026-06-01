@@ -5,7 +5,7 @@ const FeaturedSection = async() => {
   const featuredIdea = await getFeaturedIdeas();
 
   return (
-    <section className="bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-white py-20 px-4 md:px-8 max-w-350">
+    <section className="bg-slate-100 dark:bg-slate-900/50 text-slate-900 dark:text-white md:py-20 py-10 px-4 md:px-8 max-w-350">
       <div className="container mx-auto">
         
         <div className="text-center mb-16">
@@ -17,7 +17,7 @@ const FeaturedSection = async() => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredIdea.map(idea => <FeaturedCard idea={idea} key={idea._id}/>)}
         </div>
 

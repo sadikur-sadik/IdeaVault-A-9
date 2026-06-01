@@ -1,5 +1,5 @@
-export  const getIdeas = async () => {
-  const res = await fetch(`${process.env.BACKEND_URL}/ideas`)
+export  const getIdeas = async (search="",filter="") => {
+  const res = await fetch(`${process.env.BACKEND_URL}/ideas?search=${search}&filter=${filter}`)
   const data =await res.json();
 
   return data || []

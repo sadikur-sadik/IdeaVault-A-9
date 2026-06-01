@@ -4,7 +4,7 @@ import { LuLightbulb, LuEye, LuMessageSquare, LuRocket } from 'react-icons/lu';
 
 const Features = () => {
   return (
-    <section className="bg-slate-100  max-w-350 dark:bg-slate-950 text-slate-900 dark:text-white py-20 px-4 md:px-8">
+    <section className="bg-slate-100  max-w-350 dark:bg-slate-900/50 text-slate-900 dark:text-white py-10 md:py-20 px-4 md:px-8">
       
       <div className="container mx-auto">
         
