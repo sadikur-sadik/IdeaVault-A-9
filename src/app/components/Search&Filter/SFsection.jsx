@@ -62,8 +62,8 @@ const SFsection = ({ search, filter }) => {
                      bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 
                      focus:outline-none focus:border-cyan-500"
         />
-        
-        <button 
+
+        <button
           onClick={handleSearch}
           type="button"
           className="absolute right-0 top-0 bottom-0 px-4 flex items-center justify-center 
@@ -82,12 +82,12 @@ const SFsection = ({ search, filter }) => {
                      bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 
                      focus:outline-none focus:border-cyan-500"
         >
-          <option value="">All Categories</option>
-          <option value="tech">Tech</option>
-          <option value="health">Health</option>
-          <option value="ai">AI</option>
-          <option value="education">Education</option>
-          <option value="other">Other</option>
+          <option value="" disabled className="dark:bg-slate-900 text-gray-400">Select Category</option>
+          <option value="Tech" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Tech</option>
+          <option value="Health" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Health</option>
+          <option value="AI" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">AI</option>
+          <option value="Education" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Education</option>
+          <option value="Other" className="dark:bg-slate-900 text-slate-950 dark:text-slate-50">Other</option>
         </select>
       </div>
     </div>

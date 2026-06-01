@@ -1,4 +1,5 @@
 import MyIdeaCard from "@/app/components/Ideas/My-IdeaCard/MyIdeaCard";
+import { NoIdeas } from "@/app/components/Ideas/My-IdeaCard/No-Idea/NoIdea";
 import { auth } from "@/lib/auth";
 import { getIdeas } from "@/lib/data";
 import { headers } from "next/headers";
@@ -16,14 +17,18 @@ const myIdeas = async () => {
 
 
   return (
-    <section className="max-w-350 md:py-20 py-10">
+    <section className="max-w-350 py-5 md:py-10">
 
       <div className="container mx-auto md:w-auto w-11/12">
         <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6">My Ideas <span className="text-cyan-400">Log</span></h1>
 
+       { userIdeas.length == 0 
+       ?
+        <NoIdeas/>
+        :
         <div className="grid md:grid-cols-3  grid-cols-1 gap-6">
           {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} />)}
-        </div>
+        </div>}
       </div>
     </section>
   );

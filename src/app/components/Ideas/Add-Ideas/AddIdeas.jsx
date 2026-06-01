@@ -20,7 +20,7 @@ const AddIdeas = ({ postData }) => {
     <section className="w-full">
       <div className="container mx-auto w-11/12 lg:max-w-[60vw]">
         
-        <div className="w-full">
+        <div className="w-full py-5 md:py-10">
           <h1 className="text-3xl md:text-6xl text-center md:text-left font-bold my-6">
             Launch New <span className="text-cyan-400">Idea</span>
           </h1>
