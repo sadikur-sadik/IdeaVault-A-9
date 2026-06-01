@@ -155,9 +155,15 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
 
 
           <div className="block md:hidden">
-            <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
-            {ideaComments.map(ideaComment => <CommentCard key={ideaComment?._id} updateComment={updateComment} deleteComment={deleteComment} comment={ideaComment}></CommentCard>)}
-
+           <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
+            {ideaComments.map(ideaComment => (
+              <CommentCard
+                key={ideaComment?._id}
+                updateComment={updateComment}
+                deleteComment={deleteComment}
+                comment={ideaComment}
+              />
+            ))}
           </div>
 
         </div>

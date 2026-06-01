@@ -22,7 +22,7 @@ const Interactions = ({ comment: commentdata }) => {
       
       <div className="flex flex-col sm:flex-row gap-5 flex-1 min-w-0 w-full items-start">
         
-        {/* Image Container */}
+      
         <div className="w-full sm:w-24 h-24 rounded-xl relative overflow-hidden shrink-0 border border-slate-100 dark:border-slate-800">
           <Image 
             src={ideaImage || defaultImage} 
@@ -33,7 +33,7 @@ const Interactions = ({ comment: commentdata }) => {
           />
         </div>
 
-        {/* Content Container */}
+        
         <div className="flex-1 min-w-0 flex flex-col justify-start gap-2 w-full">
           <div className="flex items-baseline gap-3">
             <h3 className="font-bold text-base text-cyan-400 truncate">
@@ -52,7 +52,7 @@ const Interactions = ({ comment: commentdata }) => {
         </div>
       </div>
 
-      {/* Button Container - Set to always remain full width */}
+     
       <div className="w-full md:w-auto shrink-0 flex items-start">
         <Link 
           href={`/ideas/${ideaID}`}
