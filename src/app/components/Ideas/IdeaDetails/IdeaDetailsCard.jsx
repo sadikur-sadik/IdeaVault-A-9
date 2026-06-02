@@ -8,9 +8,9 @@ import { SiLibreofficewriter } from "react-icons/si";
 import { TbCoinTakaFilled } from "react-icons/tb";
 import Comment from "../../Comments/Comment";
 import CommentCard from "../../Comments/CommentCard";
+import { motion } from "motion/react";
 
 const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, ideaComments }) => {
-
 
   const { _id,
     title,
@@ -29,13 +29,22 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
   const [clamp, setClamp] = useState(true);
 
   return (
-    <section className="max-w-350">
-      <div className="shadow-sm shadow-cyan-400 mt-10 md:w-auto w-11/12 container mx-auto flex items-start rounded-xl p-3 flex-col md:flex-row">
-
+    <section className="max-w-350 overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="shadow-sm shadow-cyan-400 mt-10 md:w-auto w-11/12 container mx-auto flex items-start rounded-xl p-3 flex-col md:flex-row"
+      >
         <div className="w-full md:w-1/2 flex flex-col gap-3">
           
-          <div className="mx-auto md:w-full w-11/12 p-3 bg-slate-50 dark:bg-slate-900 rounded-2xl flex flex-col gap-3 justify-center">
-            <div className="badge text-xs font-bold text-white rounded-full border bg-cyan-400/50 border-cyan-400">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mx-auto md:w-full w-11/12 p-3 bg-slate-50 dark:bg-slate-900 rounded-2xl flex flex-col gap-3 justify-center"
+          >
+            <div className="badge text-xs font-bold text-white rounded-full border bg-cyan-400/50 border-cyan-400 w-fit px-2 py-0.5">
               {category}
             </div>
             <div>
@@ -59,9 +68,8 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
                 className="object-cover rounded-xl"
               />
             </div>
-          </div>
+          </motion.div>
 
-          
           <div className="hidden md:block">
             <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
             {ideaComments.map(ideaComment => (
@@ -74,8 +82,13 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
             ))}
           </div>
         </div>
-        <div className="flex-1 space-y-3 p-3">
 
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex-1 space-y-3 p-3 w-full"
+        >
           <div className="shadow-sm shadow-cyan-400 p-3 pt-2 rounded-2xl">
             <div className="flex gap-3 items-center w-full border-b font-normal md:font-bold text-cyan-400 dark:border-cyan-200 border-slate-300 ">
               <FaRegDotCircle />
@@ -83,7 +96,6 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
             </div>
 
             <div className="text-sm text-gray-600 dark:text-gray-300 p-3">
-
               <span className={clamp ? "line-clamp-2" : "block"}>
                 {detailedDescription}
               </span>
@@ -95,9 +107,7 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
                 {clamp ? <FaAngleDown className="w-3 h-3" /> : <FaAngleUp className="w-3 h-3" />}
               </button>
             </div>
-
           </div>
-
 
           <div className="flex gap-3 w-full">
             <div className="p-2 rounded-xl shadow-sm shadow-cyan-400 flex gap-3 flex-col md:flex-row flex-1">
@@ -108,7 +118,6 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
               <p className="font-bold md:font-extrabold">
                 {userName}
               </p>
-
             </div>
             <div className="p-2 rounded-xl shadow-sm shadow-cyan-400 flex gap-3 flex-col md:flex-row flex-1">
               <p className="flex gap-1 items-center text-cyan-400 font-normal md:font-bold">
@@ -118,24 +127,19 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
               <p className="font-bold md:font-extrabold">
                 {estimatedBudget}
               </p>
-
             </div>
-
           </div>
 
           <div className="p-2 rounded-xl shadow-sm shadow-cyan-400">
-            <p className="flex  items-center gap-1 text-cyan-400 font-normal md:font-bold">
+            <p className="flex items-center gap-1 text-cyan-400 font-normal md:font-bold">
               <SiLibreofficewriter />
               <span>Target Audience:</span>
             </p>
-            <p>
-              {targetAudience}
-            </p>
+            <p>{targetAudience}</p>
           </div>
+
           <div className="grid grid-cols-2 gap-3 p-3 items-start w-full rounded-xl shadow-sm shadow-cyan-400">
-
             <div className="flex flex-col h-full">
-
               <p className="flex flex-col justify-center items-center text-cyan-400 border-b border-slate-300 min-h-24 pb-2">
                 <MdReportProblem className="md:w-10 w-8 h-8 md:h-10" />
                 <span className="font-medium mt-1">Problem</span>
@@ -144,7 +148,6 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
             </div>
 
             <div className="flex flex-col h-full border-l border-slate-300 pl-3">
-
               <p className="flex flex-col justify-center items-center text-cyan-400 border-b border-slate-300 min-h-24 pb-2">
                 <BsLightbulbFill className="md:w-10 w-8 h-8 md:h-10" />
                 <span className="font-medium mt-1">Solution</span>
@@ -153,9 +156,8 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
             </div>
           </div>
 
-
           <div className="block md:hidden">
-           <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
+            <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
             {ideaComments.map(ideaComment => (
               <CommentCard
                 key={ideaComment?._id}
@@ -165,9 +167,8 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
               />
             ))}
           </div>
-
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

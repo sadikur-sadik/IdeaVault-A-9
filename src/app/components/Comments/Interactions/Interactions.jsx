@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-
+import { motion } from "motion/react"
 const Interactions = ({ comment: commentdata }) => {
   const {
     _id,
@@ -13,18 +13,24 @@ const Interactions = ({ comment: commentdata }) => {
     ideaImage
   } = commentdata;
 
-  
+  const MotionImage = motion(Image);
   const time = `${timeStamp.date}/${timeStamp.month}/${timeStamp.year}`;
   const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
 
   return (
-    <div className="w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-200 flex flex-col md:flex-row gap-6 items-start justify-between">
+    <motion.div 
+    initial={{opacity: 0,y:"10%"}}
+    animate={{opacity: 1,y:0}}
+    transition={{duration:.1}}
+    className="w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-sm hover:shadow-md transition duration-200 flex flex-col md:flex-row gap-6 items-start justify-between">
       
       <div className="flex flex-col sm:flex-row gap-5 flex-1 min-w-0 w-full items-start">
         
       
         <div className="w-full sm:w-24 h-24 rounded-xl relative overflow-hidden shrink-0 border border-slate-100 dark:border-slate-800">
-          <Image 
+          <MotionImage
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
             src={ideaImage || defaultImage} 
             fill 
             priority 
@@ -63,7 +69,7 @@ const Interactions = ({ comment: commentdata }) => {
         </Link>
       </div>
 
-    </div>
+    </motion.div>
   );
 };
 

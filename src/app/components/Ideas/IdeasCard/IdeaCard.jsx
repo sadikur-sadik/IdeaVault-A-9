@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
+import { motion,easeOut } from "motion/react"
 const IdeaCard = ({ idea }) => {
-
+const MotionImage = motion(Image);
   const {
     _id,
     title,
@@ -20,9 +20,13 @@ const IdeaCard = ({ idea }) => {
     userName
   } = idea
   return (
-    <div className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-5/6 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
+    <motion.div
+          whileHover={{y:"-3%"}}
+          transition={{ duration: .2, ease: easeOut }} className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-5/6 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
-        <Image src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"></Image>
+        <MotionImage
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.3, ease: "easeOut" }} src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"/>
       </div>
       <div className="h-25 space-y-3 mt-3">
         <div className="badge text-xs font-bold text-slate-900 dark:text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>
@@ -40,7 +44,7 @@ const IdeaCard = ({ idea }) => {
       <div className="my-3">
         <Link href={`ideas/${_id}`}><button className="hover:bg-cyan-400 hover:text-slate-950 font-bold px-3 py-2 w-full rounded-full  text-cyan-400 bg-transparent border border-cyan-400">View Details</button></Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

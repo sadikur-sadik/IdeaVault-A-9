@@ -1,6 +1,5 @@
 'use client'
 import Image from "next/image";
-import Link from "next/link";
 import EditUser from "./EditUser/EditUser";
 
 const Profile = ({ user, handleSignOut }) => {

@@ -1,8 +1,10 @@
+'use client'
+
 import Image from "next/image"
 import UpdateModal from "./Update/UpdateModal";
 import { deleteIdea, updateIdea } from "@/lib/action";
 import DeleteIdeaModal from "./Delete/DeleteModal";
-
+import { motion,easeOut } from "motion/react"
 const MyIdeaCard = (idea) => {
 
   const {
@@ -19,12 +21,17 @@ const MyIdeaCard = (idea) => {
     proposedSolution,
     userName
   } = idea?.idea
-
+const MotionImage = motion(Image);
 
   return (
-    <div className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-11/12 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
+    <motion.div
+      whileHover={{ y: "-3%" }}
+      transition={{ duration: .2, ease: easeOut }}
+      className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-11/12 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
-        <Image src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"></Image>
+        <MotionImage
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.3, ease: easeOut }}src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"/>
       </div>
       <div className="h-25 space-y-3 mt-3">
         <div className="badge text-xs font-bold text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>
@@ -39,7 +46,7 @@ const MyIdeaCard = (idea) => {
         <div><DeleteIdeaModal deleteIdea={deleteIdea} id={_id}/></div>
       </div>
      
-    </div>
+    </motion.div>
   );
 };
 
