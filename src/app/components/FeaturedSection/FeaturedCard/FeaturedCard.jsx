@@ -7,6 +7,7 @@ import { motion, easeOut } from "motion/react"
 const FeaturedCard = ({ idea }) => {
   const MotionImage = motion(Image);
   const {
+    _id,
     title,
     shortDescription,
     category,
@@ -62,14 +63,14 @@ const FeaturedCard = ({ idea }) => {
         >
           <div className="flex items-center gap-2 w-full justify-center">
             <Link
-              href="/ideas"
+              href={`/ideas/${_id}`}
               className="px-4 py-2 bg-white text-cyan-500 rounded-full font-bold text-xs shadow-sm whitespace-nowrap"
             >
               View Details
             </Link>
 
             <Link
-              href="/add-idea"
+              href="/add-ideas"
               className="px-4 py-2 bg-transparent text-white border-2 border-white rounded-full font-bold text-xs whitespace-nowrap"
             >
               Add Ideas

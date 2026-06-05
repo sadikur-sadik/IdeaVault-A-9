@@ -4,7 +4,7 @@ import FeaturedCard from "./FeaturedCard/FeaturedCard";
 
 const FeaturedPart = ({featuredIdea}) => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto lg:w-auto w-11/12">
         
         <motion.div
           initial={{ opacity: 0, y: "-20%" }}
@@ -18,7 +18,7 @@ const FeaturedPart = ({featuredIdea}) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 gap-3">
           {featuredIdea.map(idea => <FeaturedCard idea={idea} key={idea._id}/>)}
         </div>
 
