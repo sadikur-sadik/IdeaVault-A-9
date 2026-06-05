@@ -1,6 +1,9 @@
 'use client'
 
 import { useSession } from "@/lib/auth-client";
+import { Bounce, toast } from "react-toastify";
+
+
 
 const AddIdeas = ({ postData }) => {
   const session = useSession()
@@ -13,21 +16,50 @@ const AddIdeas = ({ postData }) => {
     const formData = Object.fromEntries(initForm.entries())
     formData.userID = id
     formData.userName = userName
-    await postData(formData)
+    
+    try {
+      await postData(formData)
+
+      toast.success('New Idea Added!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      e.target.reset();
+
+    } catch (error) {
+      toast.error(error.message ||  'Failed to add new idea. Please try again.', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
   }
 
   return (
     <section className="w-full">
       <div className="container mx-auto w-11/12 lg:max-w-[60vw]">
-        
+
         <div className="w-full py-5 md:py-10">
           <h1 className="text-3xl md:text-6xl text-center md:text-left font-bold my-6">
             Launch New <span className="text-cyan-400">Idea</span>
           </h1>
         </div>
 
-        <form 
-          onSubmit={handleSubmit} 
+        <form
+          onSubmit={handleSubmit}
           className="w-full p-4 md:p-8 border border-slate-300 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900/50 backdrop-blur-md shadow-md dark:shadow-none"
         >
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 border-none p-0 m-0">
@@ -35,40 +67,40 @@ const AddIdeas = ({ postData }) => {
             <div className="flex flex-col gap-3">
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Idea Title</label>
-                <input 
-                  name="title" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Idea Title" 
-                  required 
+                <input
+                  name="title"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Idea Title"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Short Description</label>
-                <input 
-                  name="shortDescription" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Short Description" 
-                  required 
+                <input
+                  name="shortDescription"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Short Description"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Detailed Description</label>
-                <input 
-                  name="detailedDescription" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Detailed Description" 
-                  required 
+                <input
+                  name="detailedDescription"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Detailed Description"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Category</label>
-                <select 
-                  name="category" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  defaultValue="" 
+                <select
+                  name="category"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  defaultValue=""
                   required
                 >
                   <option value="" disabled className="dark:bg-slate-900 text-gray-400">Select Category</option>
@@ -82,10 +114,10 @@ const AddIdeas = ({ postData }) => {
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Tags (Optional)</label>
-                <input 
-                  name="tags" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Tags" 
+                <input
+                  name="tags"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Tags"
                 />
               </div>
             </div>
@@ -93,64 +125,64 @@ const AddIdeas = ({ postData }) => {
             <div className="flex flex-col gap-3">
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Image URL</label>
-                <input 
-                  name="imageUrl" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Image URL" 
-                  required 
+                <input
+                  name="imageUrl"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Image URL"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Estimated Budget</label>
-                <input 
-                  name="estimatedBudget" 
-                  type="number" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Estimated Budget" 
-                  required 
+                <input
+                  name="estimatedBudget"
+                  type="number"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Estimated Budget"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Target Audience</label>
-                <input 
-                  name="targetAudience" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Target Audience" 
-                  required 
+                <input
+                  name="targetAudience"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Target Audience"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Problem Statement</label>
-                <input 
-                  name="problemStatement" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Problem Statement" 
-                  required 
+                <input
+                  name="problemStatement"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Problem Statement"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block mb-1 text-slate-600 dark:text-slate-300 text-sm font-medium">Proposed Solution</label>
-                <input 
-                  name="proposedSolution" 
-                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500" 
-                  placeholder="Proposed Solution" 
-                  required 
+                <input
+                  name="proposedSolution"
+                  className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
+                  placeholder="Proposed Solution"
+                  required
                 />
               </div>
             </div>
 
             <div className="col-span-1 md:col-span-2 flex flex-col-reverse sm:flex-row justify-end gap-4 mt-6">
-              <button 
-                type="reset" 
+              <button
+                type="reset"
                 className="hidden md:block text-slate-900 dark:text-slate-300 text-sm font-bold px-5 py-2 rounded-full border border-transparent hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
               >
                 Reset
               </button>
-              
+
               <button
                 type="submit"
                 className="w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold bg-cyan-400 text-slate-950 border border-cyan-400 hover:bg-transparent hover:text-cyan-400 transition-colors"

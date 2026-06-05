@@ -9,14 +9,9 @@ const MotionImage = motion(Image);
     _id,
     title,
     shortDescription,
-    detailedDescription,
     category,
-    tags,
     imageUrl,
     estimatedBudget,
-    targetAudience,
-    problemStatement,
-    proposedSolution,
     userName
   } = idea
   return (

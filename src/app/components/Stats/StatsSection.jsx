@@ -16,10 +16,9 @@ const StatsSection = () => {
       <div className="container mx-auto">
 
         <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: easeOut }}
+          initial={{ opacity: 0, y: "-20%" }}
+          whileInView={{ opacity: 1, y: "0" }}
+          transition={{ duration: .8, ease: easeOut }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

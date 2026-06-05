@@ -15,7 +15,7 @@ const IdeaDetails = async({params}) => {
   return (
     <div className="md:py-10 py-5">
 
-      <IdeaDetailsCard postComment={postComment} id={id} idea={idea} ideaComments={ideaComments} updateComment={updateComment} deleteComment={deleteComment} ></IdeaDetailsCard>
+      <IdeaDetailsCard key={id} postComment={postComment} id={id} idea={idea} ideaComments={ideaComments} updateComment={updateComment} deleteComment={deleteComment} ></IdeaDetailsCard>
       
       
     </div>

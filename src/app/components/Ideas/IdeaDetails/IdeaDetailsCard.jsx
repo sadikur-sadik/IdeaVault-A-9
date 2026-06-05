@@ -27,18 +27,18 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
   } = idea;
 
   const [clamp, setClamp] = useState(true);
-
+  const MotionImage = motion(Image);
   return (
-    <section className="max-w-350 overflow-hidden">
-      <motion.div 
+    <section className="max-w-350">
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="shadow-sm shadow-cyan-400 mt-10 md:w-auto w-11/12 container mx-auto flex items-start rounded-xl p-3 flex-col md:flex-row"
       >
         <div className="w-full md:w-1/2 flex flex-col gap-3">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -60,7 +60,9 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
             </div>
 
             <div className="w-full md:h-[50vh] h-[30vh] overflow-hidden relative rounded-xl">
-              <Image
+              <MotionImage
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 src={imageUrl}
                 alt={title}
                 fill
@@ -83,7 +85,7 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
           </div>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -160,10 +162,13 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
             <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>
             {ideaComments.map(ideaComment => (
               <CommentCard
-                key={ideaComment?._id}
+                key={`mobile-${ideaComment?._id}`}
                 updateComment={updateComment}
                 deleteComment={deleteComment}
-                comment={ideaComment}
+                comment={{
+                  ...ideaComment,
+                  _id: `mobile-${ideaComment?._id}`
+                }}
               />
             ))}
           </div>

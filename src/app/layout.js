@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 
 import { Provider } from "./components/theme-provider/Provider";
 import Footer from "./components/Footer/Footer";
+import { Bounce, ToastContainer } from "react-toastify";
 
 // 1. Import and configure Inter (it is a variable font by default)
 const inter = Inter({
@@ -40,7 +41,20 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange>
           <Navbar />
           {children}
-          <Footer/>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={true}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
+          <Footer />
         </Provider>
       </body>
     </html>

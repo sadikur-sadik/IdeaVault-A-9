@@ -1,5 +1,6 @@
 import MyIdeaCard from "@/app/components/Ideas/My-IdeaCard/MyIdeaCard";
 import { NoIdeas } from "@/app/components/Ideas/My-IdeaCard/No-Idea/NoIdea";
+import { deleteIdea, updateIdea } from "@/lib/action";
 import { auth } from "@/lib/auth";
 import { getIdeas } from "@/lib/data";
 import { headers } from "next/headers";
@@ -27,9 +28,10 @@ const myIdeas = async () => {
         <NoIdeas/>
         :
         <div className="grid md:grid-cols-3  grid-cols-1 gap-6">
-          {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} />)}
+          {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} deleteIdea={deleteIdea} updateIdea={updateIdea}/>)}
         </div>}
       </div>
+       
     </section>
   );
 

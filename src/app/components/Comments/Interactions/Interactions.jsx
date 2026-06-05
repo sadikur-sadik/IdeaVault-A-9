@@ -14,7 +14,7 @@ const Interactions = ({ comment: commentdata }) => {
   } = commentdata;
 
   const MotionImage = motion(Image);
-  const time = `${timeStamp.date}/${timeStamp.month}/${timeStamp.year}`;
+  const time = `${timeStamp.hour}:${timeStamp.minute} ${timeStamp.date}/${timeStamp.month}/${timeStamp.year}`;
   const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
 
   return (

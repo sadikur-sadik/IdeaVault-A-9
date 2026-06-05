@@ -1,10 +1,8 @@
-'use server' // <-- This applies to everything below automatically
-
 import { revalidatePath } from "next/cache";
 import { auth } from "./auth";
 import { headers } from "next/headers";
 
-const getToken = async () => {
+export const getToken = async () => {
   const sessionToken = await auth.api.getToken({
     headers: await headers()
   });
@@ -12,18 +10,19 @@ const getToken = async () => {
 }
 
 export const postData = async (form) => {
+  'use server'
   const token = await getToken();
-  if (!token) return { error: "Unauthorized" };
-
+  if (!token?.token) return { error: "Unauthorized" };
+  console.log(form);
   const res = await fetch(`${process.env.BACKEND_URL}/ideas`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`
+      'authorization': `Bearer ${token.token}`
     },
     body: JSON.stringify(form)
   });
-
+ 
   if (!res.ok) return { error: "Failed to post data" };
   const data = await res.json();
 
@@ -34,14 +33,15 @@ export const postData = async (form) => {
 }
 
 export const postComment = async (comment) => {
+  'use server'
   const token = await getToken();
-  if (!token) return { error: "Unauthorized" };
+  if (!token?.token) return { error: "Unauthorized" };
 
   const res = await fetch(`${process.env.BACKEND_URL}/comments`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`
+      'authorization': `Bearer ${token.token}`
     },
     body: JSON.stringify(comment)
   });
@@ -56,13 +56,14 @@ export const postComment = async (comment) => {
 }
 
 export const deleteIdea = async (ideaID) => {
+  'use server'
   const token = await getToken();
-  if (!token) return { error: "Unauthorized" };
+  if (!token?.token) return { error: "Unauthorized" };
 
   const res = await fetch(`${process.env.BACKEND_URL}/ideas/${ideaID}`, {
     method: 'DELETE',
     headers: {
-      authorization: `Bearer ${token}`
+      'authorization': `Bearer ${token.token}`
     }
   });
 
@@ -76,13 +77,14 @@ export const deleteIdea = async (ideaID) => {
 }
 
 export const deleteComment = async (commentID) => {
+  'use server'
   const token = await getToken();
-  if (!token) return { error: "Unauthorized" };
+  if (!token?.token) return { error: "Unauthorized" };
 
   const res = await fetch(`${process.env.BACKEND_URL}/comments/${commentID}`, {
     method: 'DELETE',
     headers: {
-      authorization: `Bearer ${token}`
+      'authorization': `Bearer ${token.token}`
     }
   });
 
@@ -96,14 +98,15 @@ export const deleteComment = async (commentID) => {
 }
 
 export const updateIdea = async (formData, editID) => {
+  'use server'
   const token = await getToken();
-  if (!token) return { error: "Unauthorized" };
+  if (!token?.token) return { error: "Unauthorized" };
 
   const res = await fetch(`${process.env.BACKEND_URL}/ideas/${editID}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`
+      'authorization': `Bearer ${token.token}`
     },
     body: JSON.stringify(formData)
   });
@@ -118,14 +121,15 @@ export const updateIdea = async (formData, editID) => {
 }
 
 export const updateComment = async (formData, editID) => {
+  'use server'
   const token = await getToken();
-  if (!token) return { error: "Unauthorized" };
+  if (!token?.token) return { error: "Unauthorized" };
 
   const res = await fetch(`${process.env.BACKEND_URL}/comments/${editID}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`
+      'authorization': `Bearer ${token.token}`
     },
     body: JSON.stringify(formData)
   });

@@ -6,21 +6,44 @@ import { useState } from "react";
 import Profile from "./Profile/Profile";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { motion } from "motion/react"
-import { div } from "motion/react-client";
+import { Bounce, toast } from 'react-toastify';
 const Navbar = () => {
   const [route, setRoute] = useState(false);
   const path = usePathname();
   const { data: user } = authClient.useSession();
   const router = useRouter();
 
+
   const handleSignOut = async () => {
-    await authClient.signOut({
-      fetchOptions: {
-        onSuccess: () => {
-          router.push("/signin");
-        },
-      },
-    });
+    try {
+      await authClient.signOut();
+      toast.success("Signed out successfully!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+
+      router.push("/signin");
+
+    } catch (error) {
+      toast.error(error.message || "Failed to sign out. Please try again.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
   };
 
   return (
