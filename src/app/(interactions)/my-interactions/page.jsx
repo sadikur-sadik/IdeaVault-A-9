@@ -14,7 +14,7 @@ const MyInteractions = async () => {
 
   return (
     <section className="max-w-350 py-5 md:py-10">
-      <div className="container mx-auto md:w-auto w-11/12 ">
+      <div className="container mx-auto lg:w-auto w-11/12 ">
 
         <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6 ">Interaction <span className="text-cyan-400">History</span></h1>
         {

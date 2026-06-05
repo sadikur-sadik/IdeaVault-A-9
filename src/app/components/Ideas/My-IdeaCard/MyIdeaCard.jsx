@@ -14,7 +14,7 @@ const MyIdeaCard = ({ idea, deleteIdea, updateIdea }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="mx-auto dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-11/12 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400"
+      className="mx-auto dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-11/12 lg:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400"
     >
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
         <MotionImage

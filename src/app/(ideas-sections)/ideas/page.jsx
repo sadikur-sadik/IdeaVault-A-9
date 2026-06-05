@@ -20,7 +20,7 @@ const Ideas = async ({ searchParams }) => {
           <SFsection search={search} filter={filter} />
         </div>
         {
-          ideas.length > 0 ?(<div className="grid  md:gap-6 gap-3 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
+          ideas.length > 0 ?(<div className="grid md:gap-6 gap-3 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
             {ideas?.map(idea => <IdeaCard key={idea?._id} idea={idea} />)}
 
           </div>

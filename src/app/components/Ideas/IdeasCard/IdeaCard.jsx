@@ -18,7 +18,7 @@ const MotionImage = motion(Image);
   return (
     <motion.div
           whileHover={{y:"-3%"}}
-          transition={{ duration: .2, ease: easeOut }} className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-5/6 md:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
+          transition={{ duration: .2, ease: easeOut }} className="mx-auto hover:shadow-lg dark:bg-slate-900/50 bg-white border-t-15 border-t-cyan-400 w-11/12 lg:w-full rounded-3xl p-3 shadow-sm shadow-cyan-400">
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
         <MotionImage
           whileHover={{ scale: 1.08 }}
