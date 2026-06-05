@@ -14,7 +14,7 @@ const Ideas = async ({ searchParams }) => {
 
   return (
     <section className="max-w-350 md:py-10 py-5">
-      <div className="container mx-auto ">
+      <div className="container mx-auto lg:w-auto w-11/12">
         <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-5 md:my-10">Explore All <span className="text-cyan-400">Ideas</span></h1>
         <div>
           <SFsection search={search} filter={filter} />
