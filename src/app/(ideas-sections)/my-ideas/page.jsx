@@ -27,7 +27,7 @@ const myIdeas = async () => {
        ?
         <NoIdeas/>
         :
-        <div className="grid md:grid-cols-3  grid-cols-1 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 md:gap-6 gap-3">
           {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} deleteIdea={deleteIdea} updateIdea={updateIdea}/>)}
         </div>}
       </div>
