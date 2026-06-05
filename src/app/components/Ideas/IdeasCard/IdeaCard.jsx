@@ -14,6 +14,7 @@ const MotionImage = motion(Image);
     estimatedBudget,
     userName
   } = idea
+   const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   return (
     <motion.div
           whileHover={{y:"-3%"}}
@@ -21,7 +22,7 @@ const MotionImage = motion(Image);
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
         <MotionImage
           whileHover={{ scale: 1.08 }}
-          transition={{ duration: 0.3, ease: "easeOut" }} src={imageUrl} alt={title} fill priority className="object-cover rounded-xl"/>
+          transition={{ duration: 0.3, ease: "easeOut" }} src={imageUrl || defaultImage} alt={title} fill priority className="object-cover rounded-xl"/>
       </div>
       <div className="h-25 space-y-3 mt-3">
         <div className="badge text-xs font-bold text-slate-900 dark:text-white rounded-full border bg-cyan-400/50 border-cyan-400">{category}</div>

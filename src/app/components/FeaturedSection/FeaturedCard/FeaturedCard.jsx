@@ -15,7 +15,7 @@ const FeaturedCard = ({ idea }) => {
   } = idea
 
   const [hovered, setHovered] = useState(false);
-
+   const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   return (
     <motion.div
       whileHover={{ y: "-3%" }}
@@ -31,7 +31,7 @@ const FeaturedCard = ({ idea }) => {
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           
-          src={imageUrl}
+          src={imageUrl || defaultImage}
           alt={title}
           fill
           priority

@@ -8,7 +8,7 @@ import { motion } from "motion/react"
 const MyIdeaCard = ({ idea, deleteIdea, updateIdea }) => {
   const { _id, title, category, imageUrl } = idea;
   const MotionImage = motion(Image);
-
+   const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -18,7 +18,7 @@ const MyIdeaCard = ({ idea, deleteIdea, updateIdea }) => {
     >
       <div className="w-full h-60 overflow-hidden relative rounded-xl">
         <MotionImage
-          src={imageUrl} 
+          src={imageUrl || defaultImage} 
           alt={title} 
           fill 
           priority 

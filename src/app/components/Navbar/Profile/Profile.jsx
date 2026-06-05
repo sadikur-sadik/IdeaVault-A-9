@@ -3,6 +3,8 @@ import Image from "next/image";
 import EditUser from "./EditUser/EditUser";
 
 const Profile = ({ user, handleSignOut }) => {
+
+  const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -22,7 +24,7 @@ const Profile = ({ user, handleSignOut }) => {
           </div>
           <div className="absolute top-[50%] left-[5%] w-15 h-15 overflow-hidden rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-800 flex items-center justify-center max-h-[90vh] md:max-h-[85vh] overflow-y-auto">
             <Image
-              src={user?.user?.image}
+              src={user?.user?.image || defaultImage}
               alt="User Profile Picture"
               fill
               sizes="400px"
@@ -37,7 +39,7 @@ const Profile = ({ user, handleSignOut }) => {
             >
               Log Out
             </button>
-            <EditUser />
+            <EditUser user={user.user}/>
           </div>
         </div>
 

@@ -19,7 +19,7 @@ const CommentCard = ({ comment: commentdata, deleteComment, updateComment }) => 
 
   const user = userData?.data?.user?.id === userID;
   const time = `${timeStamp.hour}:${timeStamp.minute} ${timeStamp.date}/${timeStamp.month}/${timeStamp.year}`;
-  console.log(time);
+   const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   const handleDelete = async () => {
     const isDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
     
@@ -59,7 +59,7 @@ const CommentCard = ({ comment: commentdata, deleteComment, updateComment }) => 
       <div className='flex gap-3 items-start min-w-60 flex-1'>
         <div className='w-9 h-9 rounded-full relative overflow-hidden shrink-0 ring-1 ring-slate-300 dark:ring-slate-700'>
           <Image
-            src={userImage}
+            src={userImage || defaultImage}
             fill
             priority
             alt={`${userName} commented`}

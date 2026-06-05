@@ -4,10 +4,8 @@ import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Bounce, toast } from "react-toastify";
 
-const EditUser = () => {
-  // Use React state instead of document.getElementById
+const EditUser = ({user}) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -25,7 +23,7 @@ const EditUser = () => {
         theme: "light",
         transition: Bounce,
       });
-      setIsOpen(false); // Cleanly close modal on success
+      setIsOpen(false);
 
     } catch (error) {
       toast.error(error.message || 'Failed to update profile. Please try again.', {
@@ -50,8 +48,6 @@ const EditUser = () => {
       >
         Edit
       </button>
-
-      {/* Basic, glitch-free modal layout */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
           <div className="w-full max-w-sm p-0 border border-slate-300 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 shadow-xl relative">
@@ -68,6 +64,7 @@ const EditUser = () => {
                 <input
                   name="name"
                   type="text"
+                  defaultValue={user?.name}
                   className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
                   placeholder="Your Name"
                   required
@@ -79,6 +76,7 @@ const EditUser = () => {
                 <input
                   name="image"
                   type="text"
+                  defaultValue={user?.image}
                   className="w-full h-10 px-5 rounded-full border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-950 dark:text-slate-50 focus:outline-none focus:border-cyan-500"
                   placeholder="https://example.com/avatar.jpg"
                   required
