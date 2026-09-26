@@ -18,20 +18,20 @@ const myIdeas = async () => {
 
 
   return (
-    <section className="max-w-350 py-5 md:py-10">
+    <section className="max-w-350 2xl:max-w-[1800px] 3xl:max-w-[2200px] mx-auto py-5 md:py-10">
 
       <div className="container mx-auto lg:w-auto w-11/12">
         <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6">My Ideas <span className="text-cyan-400">Log</span></h1>
 
-       { userIdeas.length == 0 
-       ?
-        <NoIdeas/>
-        :
-        <div className="grid md:grid-cols-2 lg:grid-cols-3  grid-cols-1 md:gap-6 gap-3">
-          {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} deleteIdea={deleteIdea} updateIdea={updateIdea}/>)}
-        </div>}
+        {userIdeas.length == 0
+          ?
+          <NoIdeas />
+          :
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 grid-cols-1 md:gap-6 gap-3">
+            {userIdeas.map(idea => <MyIdeaCard idea={idea} key={idea?._id} deleteIdea={deleteIdea} updateIdea={updateIdea} />)}
+          </div>}
       </div>
-       
+
     </section>
   );
 

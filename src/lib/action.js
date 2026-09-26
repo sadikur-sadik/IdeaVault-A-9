@@ -3,10 +3,16 @@ import { auth } from "./auth";
 import { headers } from "next/headers";
 
 export const getToken = async () => {
-  const sessionToken = await auth.api.getToken({
-    headers: await headers()
-  });
-  return sessionToken;
+  try {
+    const reqHeaders = await headers();
+    const sessionToken = await auth.api.getToken({
+      headers: reqHeaders
+    });
+    return sessionToken;
+  } catch (error) {
+    console.error("Error getting session token:", error.message);
+    return null;
+  }
 }
 
 export const postData = async (form) => {
@@ -139,6 +145,29 @@ export const updateComment = async (formData, editID) => {
 
   if (res.ok || data.modifiedCount > 0) {
     revalidatePath('/my-ideas');
+  }
+  return data || {};
+}
+
+export const voteInPoll = async (ideaID, optionId) => {
+  'use server'
+  const token = await getToken();
+  if (!token?.token) return { error: "Unauthorized" };
+
+  const res = await fetch(`${process.env.BACKEND_URL}/ideas/${ideaID}/poll/vote`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token.token}`
+    },
+    body: JSON.stringify({ optionId })
+  });
+
+  if (!res.ok) return { error: "Failed to vote in poll" };
+  const data = await res.json();
+
+  if (res.ok) {
+    revalidatePath(`/ideas/${ideaID}`);
   }
   return data || {};
 }

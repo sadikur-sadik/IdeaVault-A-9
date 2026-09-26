@@ -1,20 +1,34 @@
-import { headers } from 'next/headers'
-import { NextResponse } from 'next/server'
-import { auth } from './lib/auth'
+import { NextResponse } from 'next/server';
 
 export async function proxy(request) {
-  const session = await auth.api.getSession({
-    headers: await headers()
-  })
+  const allCookies = request.cookies.getAll();
 
-  if (session) {
-    return NextResponse.next()
+  // Check if any better-auth session cookie exists with a valid value
+  const hasSession = allCookies.some(
+    (cookie) =>
+      (cookie.name.includes("better-auth") ||
+        cookie.name.includes("session") ||
+        cookie.name.includes("token")) &&
+      cookie.value &&
+      cookie.value.trim() !== ""
+  );
+
+  if (hasSession) {
+    return NextResponse.next();
   }
-  else {
-    return NextResponse.redirect(new URL('/signin', request.url))
-  }
+
+  // Redirect to signin if no session cookie found
+  const signinUrl = new URL('/signin', request.url);
+  return NextResponse.redirect(signinUrl);
 }
+
+export default proxy;
 
 export const config = {
-  matcher: ['/ideas/:path', '/my-ideas', '/my-interactions','/add-ideas']
-}
+  matcher: [
+    '/ideas/:id+',
+    '/my-ideas',
+    '/my-interactions',
+    '/add-ideas'
+  ]
+};

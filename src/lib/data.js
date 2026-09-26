@@ -36,7 +36,7 @@ export const getComments = async () => {
 
   const token = await getToken();
   if (!token?.token) return { error: "Unauthorized" };
-  
+
   const res = await fetch(`${process.env.BACKEND_URL}/comments`,
     {
       headers: {

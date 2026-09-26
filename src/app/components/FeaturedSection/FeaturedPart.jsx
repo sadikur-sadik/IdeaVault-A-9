@@ -18,7 +18,7 @@ const FeaturedPart = ({featuredIdea}) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 md:gap-8 gap-3">
           {featuredIdea.map(idea => <FeaturedCard idea={idea} key={idea._id}/>)}
         </div>
 

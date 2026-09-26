@@ -8,9 +8,10 @@ import { SiLibreofficewriter } from "react-icons/si";
 import { TbCoinTakaFilled } from "react-icons/tb";
 import Comment from "../../Comments/Comment";
 import CommentCard from "../../Comments/CommentCard";
+import PollWidget from "./PollWidget";
 import { motion } from "motion/react";
 
-const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, ideaComments }) => {
+const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, ideaComments, voteInPoll }) => {
 
   const { _id,
     title,
@@ -23,14 +24,15 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
     targetAudience,
     problemStatement,
     proposedSolution,
-    userName
+    userName,
+    poll
   } = idea;
   
   const [clamp, setClamp] = useState(true);
   const MotionImage = motion(Image);
    const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   return (
-    <section className="max-w-350">
+    <section className="max-w-350 2xl:max-w-[1800px] 3xl:max-w-[2200px] mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -158,6 +160,8 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
               <p className="pt-3">{proposedSolution}</p>
             </div>
           </div>
+
+          {poll && <PollWidget ideaId={_id || id} poll={poll} voteInPoll={voteInPoll} />}
 
           <div className="block md:hidden">
             <Comment postComment={postComment} id={id} title={title} imageUrl={imageUrl}></Comment>

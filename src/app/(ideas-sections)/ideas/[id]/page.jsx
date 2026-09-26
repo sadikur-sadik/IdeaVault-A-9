@@ -1,6 +1,6 @@
 
 import IdeaDetailsCard from "@/app/components/Ideas/IdeaDetails/IdeaDetailsCard";
-import { postComment, updateComment } from "@/lib/action";
+import { postComment, updateComment, voteInPoll } from "@/lib/action";
 import { getComments, getIdeasById } from "@/lib/data";
 import { deleteComment } from "@/lib/action";
 const IdeaDetails = async({params}) => {
@@ -15,7 +15,7 @@ const IdeaDetails = async({params}) => {
   return (
     <div className="md:py-10 py-5">
 
-      <IdeaDetailsCard key={id} postComment={postComment} id={id} idea={idea} ideaComments={ideaComments} updateComment={updateComment} deleteComment={deleteComment} ></IdeaDetailsCard>
+      <IdeaDetailsCard key={id} postComment={postComment} id={id} idea={idea} ideaComments={ideaComments} updateComment={updateComment} deleteComment={deleteComment} voteInPoll={voteInPoll} ></IdeaDetailsCard>
       
       
     </div>
