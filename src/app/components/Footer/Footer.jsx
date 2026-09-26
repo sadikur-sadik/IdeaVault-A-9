@@ -14,13 +14,10 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start gap-4">
             <Link 
               href="/" 
-              className="text-2xl normal-case hover:bg-slate-100 dark:hover:bg-slate-900 py-1.5 rounded-md transition-all duration-200 flex items-center tracking-tight shrink-0"
+              className="text-2xl normal-case hover:bg-slate-100 dark:hover:bg-slate-900 py-1.5 rounded-md transition-all duration-200 flex items-center tracking-tight shrink-0 font-sans"
             >
-              <span className="font-extrabold text-cyan-600 dark:text-cyan-400">i</span>
-              <span className="font-black text-slate-950 dark:text-slate-100 tracking-tighter">DEA</span>
-              <span className="ml-1.5 px-1.5 py-0.5 text-xs font-bold rounded-xs bg-slate-950 dark:bg-slate-800 text-cyan-400 border border-cyan-400/20 tracking-widest uppercase">
-                Vault
-              </span>
+              <span className="font-extrabold text-cyan-600 dark:text-cyan-400">idea</span>
+              <span className="font-black text-slate-950 dark:text-slate-100 tracking-tighter">Vault</span>
             </Link>
             
             <p className="text-sm max-w-sm leading-relaxed text-slate-500 dark:text-slate-400">
@@ -118,7 +115,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-slate-100 dark:border-slate-900/60 text-center text-xs tracking-wider text-slate-500">
-          © 2026 IDEAVAULT OPERATIONS. ALL RIGHTS SECURED.
+          © 2026 ideaVault. All rights reserved.
         </div>
       </div>
     </footer>

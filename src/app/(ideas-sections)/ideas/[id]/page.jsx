@@ -3,6 +3,22 @@ import IdeaDetailsCard from "@/app/components/Ideas/IdeaDetails/IdeaDetailsCard"
 import { postComment, updateComment, voteInPoll } from "@/lib/action";
 import { getComments, getIdeasById } from "@/lib/data";
 import { deleteComment } from "@/lib/action";
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const idea = await getIdeasById(id);
+  if (!idea || idea.error) {
+    return {
+      title: "Idea Details",
+      description: "Explore startup idea details and validation polls on ideaVault.",
+    };
+  }
+  return {
+    title: `${idea.title || "Idea Details"}`,
+    description: idea.shortDescription || "Explore startup idea details and validation polls on ideaVault.",
+  };
+}
+
 const IdeaDetails = async({params}) => {
 
   const {id} = await params;

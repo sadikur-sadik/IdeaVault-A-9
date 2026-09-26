@@ -80,12 +80,9 @@ const Navbar = () => {
               </svg>
             </label>
 
-            <Link href="/" className="text-2xl normal-case hover:bg-slate-100 dark:hover:bg-slate-900 px-3 py-1.5 rounded-md transition-all duration-200 flex items-center tracking-tight shrink-0">
-              <span className="font-extrabold text-cyan-600 dark:text-cyan-400">i</span>
-              <span className="font-black text-slate-950 dark:text-slate-100 tracking-tighter">DEA</span>
-              <span className="ml-1.5 px-1.5 py-0.5 text-xs font-bold rounded-xs bg-slate-950 dark:bg-slate-800 text-cyan-400 border border-cyan-400/20 tracking-widest uppercase">
-                Vault
-              </span>
+            <Link href="/" className="text-2xl normal-case hover:bg-slate-100 dark:hover:bg-slate-900 px-3 py-1.5 rounded-md transition-all duration-200 flex items-center tracking-tight shrink-0 font-sans">
+              <span className="font-extrabold text-cyan-600 dark:text-cyan-400">idea</span>
+              <span className="font-black text-slate-950 dark:text-slate-100 tracking-tighter">Vault</span>
             </Link>
           </div>
 

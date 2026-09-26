@@ -5,6 +5,12 @@ import { auth } from "@/lib/auth";
 import { getIdeas } from "@/lib/data";
 import { headers } from "next/headers";
 
+export const metadata = {
+  title: "My Ideas",
+  description: "Manage, update, and track your submitted startup ideas and validation poll metrics on ideaVault.",
+};
+
+
 
 const myIdeas = async () => {
 

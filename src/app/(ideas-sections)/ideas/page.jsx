@@ -4,6 +4,12 @@ import NoIdeaSection from "@/app/components/Ideas/NoIdeaSection/NoIdeaSection";
 import SFsection from "@/app/components/Search&Filter/SFsection";
 import { getIdeas } from "@/lib/data";
 
+export const metadata = {
+  title: "Explore Ideas",
+  description: "Browse next-generation project ideas and startup concepts submitted by innovators across all global industries on ideaVault.",
+};
+
+
 
 const Ideas = async ({ searchParams }) => {
 

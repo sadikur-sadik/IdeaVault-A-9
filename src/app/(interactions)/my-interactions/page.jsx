@@ -4,6 +4,12 @@ import { auth } from "@/lib/auth";
 import { getComments } from "@/lib/data";
 import { headers } from "next/headers";
 
+export const metadata = {
+  title: "My Interactions",
+  description: "View and manage your comments and collaboration feedback history on ideaVault.",
+};
+
+
 const MyInteractions = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
