@@ -13,7 +13,7 @@ const MyInteractions = async () => {
   const myComments = comments.filter(comment => comment?.userID == id)
 
   return (
-    <section className="max-w-350 2xl:max-w-[1800px] 3xl:max-w-[2200px] mx-auto py-5 md:py-10">
+    <section className="max-w-7xl 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto py-5 md:py-10 px-4 md:px-8">
       <div className="container mx-auto lg:w-auto w-11/12 ">
 
         <h1 className="text-2xl md:text-6xl text-center md:text-left font-bold my-6 ">Interaction <span className="text-cyan-400">History</span></h1>

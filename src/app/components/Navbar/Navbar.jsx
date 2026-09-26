@@ -69,7 +69,7 @@ const Navbar = () => {
           className="fixed inset-0 bg-slate-200/50 dark:bg-slate-950/50 backdrop-blur-xs hidden peer-checked:max-lg:block z-40"
         ></label>
 
-        <div className="container mx-auto z-50 relative py-3 px-4 flex justify-between items-center h-16">
+        <div className="container max-w-7xl 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto z-50 relative py-3 px-4 flex justify-between items-center h-16">
           <div className="flex items-center gap-2 lg:min-w-45">
             <label
               htmlFor="navbar-1-toggle"

@@ -47,7 +47,7 @@ export default function ActivityTicker() {
   if (loading && activities.length === 0) {
     return (
       <div className="w-full bg-slate-100/80 dark:bg-slate-900/80 border-y border-slate-200 dark:border-slate-800 backdrop-blur-md py-2.5 transition-colors">
-        <div className="w-full max-w-full 2xl:max-w-[2200px] 3xl:max-w-[2560px] mx-auto px-4 md:px-8 flex items-center gap-4 overflow-hidden">
+        <div className="w-full max-w-full 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto px-4 md:px-8 flex items-center gap-4 overflow-hidden">
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 shrink-0 text-emerald-600 dark:text-emerald-400 font-bold text-xs uppercase tracking-wider animate-pulse">
             <span className="relative flex h-2 w-2">
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -75,7 +75,7 @@ export default function ActivityTicker() {
 
   return (
     <div className="w-full bg-slate-100/80 dark:bg-slate-900/80 border-y border-slate-200 dark:border-slate-800 backdrop-blur-md py-2.5 transition-colors overflow-hidden relative">
-      <div className="w-full max-w-full 2xl:max-w-[2200px] 3xl:max-w-[2560px] mx-auto px-4 md:px-8 flex items-center gap-4">
+      <div className="w-full max-w-full 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto px-4 md:px-8 flex items-center gap-4">
         {/* Live Indicator Pill */}
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 shrink-0 text-emerald-600 dark:text-emerald-400 font-bold text-xs uppercase tracking-wider z-10 shadow-xs">
           <span className="relative flex h-2.5 w-2.5">

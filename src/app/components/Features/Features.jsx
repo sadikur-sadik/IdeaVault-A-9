@@ -4,7 +4,7 @@ import { LuLightbulb, LuEye, LuMessageSquare, LuRocket } from 'react-icons/lu';
 import { easeOut, motion } from "motion/react"
 const Features = () => {
   return (
-    <section className="bg-slate-100  max-w-350 dark:bg-slate-900/50 text-slate-900 dark:text-white py-10 md:py-20 px-4 md:px-8">
+    <section className="bg-slate-100 dark:bg-slate-900/50 text-slate-900 dark:text-white py-10 md:py-20 px-4 md:px-8 max-w-7xl 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto w-full">
 
       <div className="container mx-auto">
 
@@ -26,7 +26,7 @@ const Features = () => {
           </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-4 gap-8">
 
 
         <motion.div

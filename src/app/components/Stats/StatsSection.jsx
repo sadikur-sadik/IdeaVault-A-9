@@ -11,7 +11,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="bg-slate-50 max-w-350 dark:bg-slate-950 text-slate-900 dark:text-white py-20 px-4 md:px-8 overflow-hidden">
+    <section className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white py-20 px-4 md:px-8 overflow-hidden max-w-7xl 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto w-full">
 
       <div className="container mx-auto">
 

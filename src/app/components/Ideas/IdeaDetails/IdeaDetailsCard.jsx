@@ -32,7 +32,7 @@ const IdeaDetailsCard = ({ idea, postComment, id, deleteComment, updateComment, 
   const MotionImage = motion(Image);
    const defaultImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=300&auto=format&fit=crop";
   return (
-    <section className="max-w-350 2xl:max-w-[1800px] 3xl:max-w-[2200px] mx-auto">
+    <section className="max-w-7xl 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

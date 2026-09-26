@@ -14,7 +14,7 @@ export function Banner() {
   const goToNext = () => emblaApi?.scrollNext()
 
   return (
-    <div className='relative w-full'>
+    <div className='relative w-full max-w-7xl 2xl:max-w-[1800px] 3xl:max-w-[2400px] mx-auto'>
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
